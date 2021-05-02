@@ -12,6 +12,9 @@ def main():
 		print("Usage: ./python3 rotoscoper.py [input file] [output file]")
 	in_fname = sys.argv[1]
 	out_fname = sys.argv[2]
+	if in_fname == out_fname:
+		print("Please use different input and output filenames.")
+		exit(1)
 	clip = VideoFileClip(in_fname)
 	modified = clip.fl_image(replace_img_with_edges)
 	modified.write_videofile(out_fname)
