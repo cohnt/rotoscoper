@@ -4,7 +4,8 @@ import sys
 from moviepy.editor import VideoFileClip
 
 def replace_img_with_edges(img):
-	return cv2.cvtColor(cv2.Canny(img, 100, 200), cv2.COLOR_GRAY2RGB)
+	edges = cv2.cvtColor(cv2.Canny(img, 100, 200), cv2.COLOR_GRAY2RGB)
+	return (255 - edges)
 
 def main():
 	if len(sys.argv) != 3:
